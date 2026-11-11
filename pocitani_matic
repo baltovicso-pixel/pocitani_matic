@@ -1,15 +1,62 @@
-def secti_matice(A, B):
-    vysledek = [
-        [0, 0],
-        [0, 0]
-    ]
+ 
+    if len(A) != len(B):
+        print("Chyba: Matice nemají stejný počet řádků.")
+        return None
 
-    for i in range(2):
-     for j in range(2):
-        vysledek[i][j] = A[i][j] + B[i][j]
+    if len(A[0]) != len(B[0]):
+        print("Chyba: Matice nemají stejný počet sloupců.")
+        return None
+
+
+def secti_matice(A, B):
+    vysledek = []
+
+    for i in range(len(A)):
+        radek = []
+
+        for j in range(len(A[i])):
+            radek.append(A[i][j] + B[i][j])
+
+        vysledek.append(radek)
 
     return vysledek
 
-print("Výsledek:")
+
+def odecti_matice(A, B):
+    vysledek = []
+
+    for i in range(len(A)):
+        radek = []
+
+        for j in range(len(A[i])):
+            radek.append(A[i][j] - B[i][j])
+
+        vysledek.append(radek)
+
+    return vysledek
+
+
+A = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+B = [
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
+vysledek = secti_matice(A, B)
+
+print("Soucet:")
 for radek in vysledek:
     print(radek)
+
+vysledek = odecti_matice(A, B)
+
+print("Rozdil:")
+for radek in vysledek:
+    print(radek)
+
